@@ -8,8 +8,9 @@ public class FirstController {
 
     @RequestMapping("/first")
     public Object first() {
-        return "骆素琴";
+        return "first";
     }
+
     @RequestMapping("/doError")
     public Object error() {
         return 1 / 0;
