@@ -34,11 +34,17 @@ class DemoApplicationTests {
         redisTemplate.opsForList().leftPush("site-list", "Runoob");
         redisTemplate.opsForList().leftPush("site-list", "Google");
         redisTemplate.opsForList().leftPush("site-list", "Taobao");
+        redisTemplate.opsForList().rightPop("site-list");
+        redisTemplate.opsForList().rightPop("site-list");
+        redisTemplate.opsForList().rightPop("site-list");
+        redisTemplate.opsForList().rightPop("site-list");
         // 获取存储的数据并输出
         List<String> list = redisTemplate.opsForList().range("site-list", 0, 2);
         for (int i = 0; i < list.size(); i++) {
             System.out.println("列表项为: " + list.get(i));
         }
+        Object o = redisTemplate.opsForList().rightPop("site-list");
+        System.out.println(o);
     }
 
     @Test
